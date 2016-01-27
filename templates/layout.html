@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/semantic.min.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "css/layout.css" %}"/>
+        <script src="{% static "js/semantic.min.js" %}"></script>
+        {% block headContent %}
+        {% endblock %}
+    </head>
+
+    <body>
+    <div id="main-div">
+        <div class="ui large top fixed hidden menu">
+          <div class="ui container">
+            <a class="active item">کاریاب</a>
+            <a class="item">کارمندان</a>
+            <a class="item">کارها</a>
+            <div class="right menu">
+              <div class="item">
+                <a href="register.html" class="ui button">ثبت نام</a>
+              </div>
+              <div class="item">
+                <a href="login.html" class="ui primary button">ورود</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+         {% block bodyContent %}
+
+         {% endblock %}
+
+
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+              <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column" style="direction:rtl;">
+                  <h4 class="ui inverted header" style="margin-right:20px;">شرکت کاریاب</h4><br>
+                  <div class="ui inverted link list">
+                    <a href="#" class="item" style="margin-right:20px;">درباره‌ی ما</a>
+                    <a href="#" class="item" style="margin-right:20px;">شغلها</a>            
+                    <a href="#" class="item" style="margin-right:20px;">وبلاگ ما</a>
+                  </div>
+                </div>
+                <div class="five wide column" style="direction:rtl;">
+                  <h4 class="ui inverted header" style="margin-right:20px;">خدمات سامانه</h4><br>
+                  <div class="ui inverted link list">
+                    <p></p>
+                    <a href="#" class="item" style="margin-right:20px;">خصوصیات یک کارمند خوب چیست؟</a>
+                    <a href="#" class="item" style="margin-right:20px;">چگونه یک کارمند شوم؟</a>
+                    <a href="#" class="item" style="margin-right:20px;">پشتیبانی</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block headContent %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/register.css" %}"/>
+{% endblock %}
+
+{% block bodyContent %}
+    {% if registered %}
+    Rango says: <strong>thank you for registering!</strong>
+    <a href="/rango/">Return to the homepage.</a>
+    <br />
+    {% else %}
+    <form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+        {% csrf_token%}
+        {{ user_form.as_p }}
+        {{ member_form.as_p }}
+            <!-- Provide a button to click to submit the form. -->
+    <input type="submit" name="submit" value="ثبت نام" /> </form>
+{% endif %}
+{% endblock %}
+

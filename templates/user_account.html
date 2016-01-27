@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block headContent %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/user_account.css" %}" />
+    <title>User_Account</title>
+{% endblock %}
+
+{% block bodyContent %}
+
+    <div id="main_content">
+            <div id="header">
+               <img class="logo" src="/media/{{ member.picture }}" />
+                <h3>{{ member.user.first_name }} {{ member.user.last_name }}</h3>
+            </div>
+
+            <div id="menu">
+                <ul>
+
+                        <li class="menuitem" id="edit_profile"><a href="#">ویرایش حساب کاربری</a></li>
+                        <li class="menuitem"><a href="#">جستجو</a></li>
+                    {% if member.member_type == 1 or member.member_type == 2 %}
+                        <li class="menuitem"><a href="#">حذف کاربران</a></li>
+                        <li class="menuitem"><a href="#">اضافه کردن کاربران</a></li>
+                    {% endif %}
+                    {% if member.member_type == 4 %}
+                        <li class="menuitem"><a href="#">تعریف مهارت</a></li>
+                    {% endif %}
+                    {% if member.member_type == 4  or member.member_type == 3%}
+                        <li class="menuitem"><a href="#">گزارش خطا</a></li>
+                    {% endif %}
+
+
+
+
+
+                </ul>
+            </div>
+
+            <div id="leftmenu">
+
+                    <ul>
+                        {% if member.member_type == 1 %}
+                            <li><a href="#">سود خالص در ماه</a></li>
+                            <li><a href="#">پرداخت حقوق کارمندان</a></li>
+                            <li><a href="#">مشاهده گزارشات</a></li>
+                            <li><a href="#">ارسال پیام</a></li>
+                        {% endif %}
+
+                        {% if member.member_type == 2 %}
+                            <li><a href="#">ارسال گزارش به مالک</a></li>
+                            <li><a href="#">مشاهده کارفرمایان</a></li>
+                            <li><a href="#">مشاهده کارگران</a></li>
+                            <li><a href="#"></a></li>
+                        {% endif %}
+
+                        {% if member.member_type == 3 %}
+                            <li><a href="#">تاریخجه سفارشات</a></li>
+                            <li><a href="#">لیست سفارشات</a></li>
+                            <li><a id="order_work" href="order_work.html">ثبت سفارش</a></li>
+                            <li><a href="#">تراکنش های انجام شده</a></li>
+                            <li><a href="#">تراکنش های انجام نشده</a></li>
+                        {% endif %}
+
+                        {% if member.member_type == 4 %}
+                            <li><a id="get_new_work" href="#">پذیرش پیشنهاد کار جدید</a></li>
+                            <li><a href="#">کار های انجام شده</a></li>
+                            <li><a href="#">تراکنش های انجام شده</a></li>
+
+                        {% endif %}
+                    </ul>
+            </div>
+
+
+
+            <div id="content">
+            </div>
+       </div>
+
+{#    <script type="text/javascript">#}
+{#        var button = document.querySelector("#order_work")#}
+{#        button.addEventListener('click', function (event) {#}
+{#            event.preventDefault();#}
+{#            var xhr = new XMLHttpRequest();#}
+{#            xhr.open('get','/user_account/order_work',true);#}
+{##}
+{##}
+{#        });#}
+{##}
+{#    </script>#}
+
+{% endblock %}

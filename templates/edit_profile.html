@@ -1,0 +1,55 @@
+{% extends "user_account.html" %}
+
+{% block headContent %}
+{% endblock %}
+
+{% block accountContent %}
+    <form id="edit_profile" method="post" action="/edit_profile/" >
+    {% csrf_token %}
+    <div class="ui equal width form">
+
+  <div class="fields">
+    <div class="field">
+      <label>نام</label>
+      <input type="text" name="first_name" placeholder={{ member.user.first_name }}>
+    </div>
+    <div class="field">
+      <label>نام خانوادگی</label>
+      <input type="text" name="last_name" placeholder={{ member.user.last_name }}>
+    </div>
+  </div>
+  <div class="fields">
+    <div class="field">
+      <label>استان</label>
+      <input type="text" name="city" placeholder="">
+    </div>
+    <div class="field">
+      <label>شهر</label>
+      <input type="text" name="town" placeholder="">
+    </div>
+      <div class="field">
+      <label>منطقه</label>
+      <input type="text" name="zone" placeholder="">
+    </div>
+      <div class="field">
+      <label>ناحیه</label>
+      <input type="text" name="region" placeholder="">
+    </div>
+
+  </div>
+    <div class="fields">
+        <div class="field">
+            <label>شماره تماس</label>
+            <input type="text" name="tel" placeholder={{ member.tel }}>
+        </div>
+        <div class="field">
+            <label> عکس</label>
+            <input type="file" name="picture">
+        </div>
+    </div>
+
+</div>
+    <input type="submit" name="submit" value="ثبت نام" /> </form>
+    </form>
+
+{% endblock %}

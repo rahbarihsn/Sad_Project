@@ -1,0 +1,13 @@
+#user_form{
+    background-image: url(../img/content.png);
+    margin: 50px 250px 50px 250px;
+    padding-left: 100px;
+    border-radius: 2em;
+}
+
+#user_form * {
+                border-color: #293;
+                border-width: 3px;
+                border-radius: 2em;
+            }
+

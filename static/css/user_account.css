@@ -1,0 +1,139 @@
+/* A Free Design by Bryant Smith (bryantsmith.com) */
+
+
+
+
+#main_content
+{
+
+    float: inherit;
+    clear: both;
+    margin: 50px 50px 50px 50px;
+    height:auto;
+}
+
+
+
+#header
+{
+    background-image: url(../img/header_image.png);
+    height:150px;	
+    border-radius: 1em;
+}
+
+
+
+
+
+.logo
+{
+    float: right;
+    margin: 25px 25px 25px 0px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    
+}
+
+
+#menu
+{
+    position: relative;
+    background-image: url(../img/header_image.png);
+    height: auto;
+}
+
+#leftmenu
+{
+    float: right;
+    width:230px;
+    height:auto;
+    background-image: url(../img/header_image.png);
+    border-radius: 1em;
+    margin: 0px;
+}
+
+#leftmenu ul
+{
+    position: relative;
+    width: 200px;
+    padding: 0px;
+    margin: auto;
+}
+
+
+#leftmenu ul li
+{
+    position: relative;
+    width: 200px;
+    list-style: none;
+    padding: 10px 0px 10px 0px ;
+    background-image:url(../img/left_menu_item2.jpg);
+    border-radius: 1em;
+    background-repeat:repeat-x;
+    margin-top:5px;
+    text-align:center;
+}
+
+#leftmenu ul li a, #leftmenu ul li a:visited
+{
+    position: relative;
+    list-style: none;
+    padding: 0px;
+    padding-left:12px;
+    padding-top:4px;
+    color:#FFFFFF;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:bold;
+}
+
+#leftmenu ul li a:hover
+{
+color:#000000;
+}
+
+
+#content
+{
+    margin-right: 240px;
+    overflow: scroll;
+    background-image: url(../img/header_image.png);
+    background-repeat:repeat;
+    height: auto;
+    margin-left: auto;
+    padding: 10px 10px 10px 10px;
+    left: 0px;
+}
+
+
+
+#menu ul {
+	padding: 10px;
+    text-align: center;
+}
+
+#menu li {
+	padding: 10px;
+	display: inline; 
+	
+}
+
+#menu a {
+	text-align: center;
+	text-decoration: none;
+	color: #00000;
+	font-weight: bold;
+	padding-top: 10px;
+    padding-bottom: 10px;
+	font-size: 15px;
+	padding-left:13px;
+	padding-right:13px;
+	
+}
+
+#menu a:hover{
+	background-image:url(../img/menu_image.png);
+    border-radius: 1em;
+	background-repeat:repeat-x;
+}

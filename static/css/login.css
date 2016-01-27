@@ -1,0 +1,19 @@
+#login_form{
+    background-image: url(../img/content.png);
+
+    padding-left: 100px;
+    border-radius: 2em;
+}
+
+#login_form input{
+                border-color: #293;
+                border-width: 3px;
+                border-radius: 2em;
+}
+
+#main_div
+{
+    position: relative;
+    margin: 50px 250px 50px 250px;
+    height:auto ;
+}
