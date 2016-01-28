@@ -20,8 +20,8 @@
                         <li class="menuitem" id="edit_profile"><a href="#">ویرایش حساب کاربری</a></li>
                         <li class="menuitem"><a href="#">جستجو</a></li>
                     {% if member.member_type == 1 or member.member_type == 2 %}
-                        <li class="menuitem"><a href="#">حذف کاربران</a></li>
-                        <li class="menuitem"><a href="#">اضافه کردن کاربران</a></li>
+                        <li id="delete_user" class="menuitem"><a href="#">حذف کاربران</a></li>
+                        <li id="add_user" class="menuitem"><a href="#">اضافه کردن کاربران</a></li>
                     {% endif %}
                     {% if member.member_type == 4 %}
                         <li class="menuitem"><a href="#">تعریف مهارت</a></li>
@@ -77,16 +77,16 @@
             </div>
        </div>
 
-{#    <script type="text/javascript">#}
-{#        var button = document.querySelector("#order_work")#}
-{#        button.addEventListener('click', function (event) {#}
-{#            event.preventDefault();#}
-{#            var xhr = new XMLHttpRequest();#}
-{#            xhr.open('get','/user_account/order_work',true);#}
-{##}
-{##}
-{#        });#}
-{##}
-{#    </script>#}
+    <script type="text/javascript">
+        var button = document.querySelector("#add_user")
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open('get','/user_account/{{ member.user.username }}/add_user',true);
+
+
+        });
+
+    </script>
 
 {% endblock %}

@@ -29,3 +29,18 @@ class MemberForm(forms.ModelForm):
         model = Member
         fields = ('picture','tel')
 
+
+class AddUserForm(forms.ModelForm):
+
+    bankBalance = forms.IntegerField(label='موجودی حساب')
+    picture = forms.ImageField(label='عکس',required=False)
+    tel = forms.CharField(label='تلفن',max_length=20)
+    city = forms.CharField(label='استان',max_length=20)
+    town = forms.CharField(label='شهر',max_length=20)
+    zone = forms.CharField(label='منطقه',max_length=20)
+    region = forms.CharField(label='ناحیه',max_length=20)
+    member_type = forms.IntegerField(label='نوع عضویت')
+
+    class Meta:
+        model = Member
+        fields = ('bankBalance' ,'picture' , 'tel' , 'city' , 'town' , 'zone' , 'region', 'member_type' )

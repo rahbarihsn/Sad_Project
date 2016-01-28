@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'register/activate_user/(?P<id>[0-9]+)/$',views.activate_user),
     url(r'^edit_profile/$',views.edit_profile),
     url(r'order_work/$',views.show_order_work),
-    url(r'^user_account/(?P<username>\w+)/$',views.user_account)
+    url(r'^user_account/(?P<username>\w+)/$',views.user_account),
+    url(r'add_user/$',views.add_user),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

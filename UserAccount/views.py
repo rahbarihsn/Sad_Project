@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from django.conf import settings
 from django.template import RequestContext
-from UserAccount.forms import UserForm,MemberForm
+from UserAccount.forms import UserForm,MemberForm,AddUserForm
 from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
@@ -138,3 +138,48 @@ def user_account(request,username):
     user = User.objects.get(username=username)
     member = Member.objects.get(user=user)
     return render(request,'user_account.html',{'member':member})
+
+@login_required
+def add_user(request):
+    if request.method == 'POST':
+        user_form = UserForm(data= request.POST)
+        member_form = AddUserForm(data = request.POST)
+        mem_type = member_form.member_type
+
+        if user_form.is_valid() and member_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.is_active=False
+            user.save()
+
+
+            member = member_form.save(commit=False)
+            member.user = user
+            member.save()
+            if mem_type == u'کارگر':
+                member.member_type = 4
+                member.save()
+                employe = Employe.objects.create()
+                employe.member = member
+                employe.save()
+            elif mem_type == u'کارفرما':
+                member.member_type = 3
+                member.save()
+                master = Master.objects.create()
+                master.member = member
+                master.save()
+
+            if 'picture' in request.FILES:
+                member.picture = request.FILES['picture']
+
+
+            registered = True
+
+        else:
+            print user_form.errors, member_form.errors
+    else:
+        user_form = UserForm()
+        member_form = AddUserForm()
+
+    return render(request,'register.html',
+                          {'user_form':user_form, 'member_form':member_form , 'registered':registered})
