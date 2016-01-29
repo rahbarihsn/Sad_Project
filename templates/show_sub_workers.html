@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block headContent %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/sub_workers.css" %}">
+{% endblock %}
+
+
+
+{% block bodyContent %}
+
+    <div id="doc">
+    {% for empr in emprs  %}
+
+        <div class="content_box">  
+            <img src="/media/{{ empr.employe.member.picture }}">
+            <div id="hcontent">
+                <h3>نام کاربری: <label>{{ empr.employe.member.user.username }}</label></h3>
+                <h3>نام: <label>{{ empr.employe.member.user.first_name }}</label></h3>
+                <h3>نام خانوادگی: <label>{{ empr.employe.member.user.last_name }}</label></h3>
+                <h3>استان: <label>{{ empr.employe.member.city }}</label></h3>
+                <h3>شهر: <label>{{ empr.employe.member.town }}</label></h3>
+                <h3>منطقه: <label>{{ empr.employe.member.zone }}</label></h3>
+                <h3>ناحیه: <label>{{ empr.employe.member.region }}</label></h3>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{#    <div class="pagination">#}
+{#    <span class="step-links">#}
+{#        {% if emprs.has_previous %}#}
+{#            <a href="?page={{ emprs.previous_page_number }}">previous</a>#}
+{#        {% endif %}#}
+{##}
+{#        <span class="current">#}
+{#            Page {{ emprs.number }} of {{ emprs.paginator.num_pages }}.#}
+{#        </span>#}
+{##}
+{#        {% if contacts.has_next %}#}
+{#            <a href="?page={{ emprs.next_page_number }}">next</a>#}
+{#        {% endif %}#}
+{#    </span>#}
+{#</div>#}
+
+
+{% endblock %}

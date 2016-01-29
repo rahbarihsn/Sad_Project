@@ -19,23 +19,32 @@ class Member(models.Model):
     member_type = models.IntegerField(blank=False,default=0)
     def __unicode__(self):
         return self.user.username
+    def __str__(self):
+        return self.user.first_name
 
 
 class Master(models.Model):
     member = models.OneToOneField(Member,default=0)
-    rate = models.FloatField(default=0)
+    number_of_works_ordered = models.IntegerField(default=0,blank=False)
     def __unicode__(self):
         return self.member.user.username
+    def __str__(self):
+        return self.member.user.first_name
 
 class Employe(models.Model):
     member = models.OneToOneField(Member,default=0)
-    rate = models.FloatField(default=0)
+    number_of_works_done = models.IntegerField(default=0,blank=False)
     def __unicode__(self):
         return self.member.user.username
+    def __str__(self):
+        return self.member.user.first_name
 
 class Profession(models.Model):
     name = models.CharField(max_length=20)
+    numberOfViews = models.IntegerField(default=0)
     def __unicode__(self):
+        return self.name
+    def __str__(self):
         return self.name
 
 class Emp_prfn(models.Model):
@@ -43,9 +52,12 @@ class Emp_prfn(models.Model):
         unique_together = (('employe', 'prfn'),)
     employe = models.ForeignKey(Employe)
     prfn = models.ForeignKey(Profession)
+    rate = models.FloatField(default=0)
     price = models.IntegerField(default=0)
     def __unicode__(self):
-        return self.employe + self.prfn.name
+        return "{} ({})".format(self.employe.member.user.username ,self.prfn.name)
+
+
 
 class Task(models.Model):
     emp_prfn_rel = models.ForeignKey(Emp_prfn)
@@ -65,3 +77,10 @@ class Transaction(models.Model):
     def __unicode__(self):
         return self.member.user.username
 
+    def __str__(self):
+        return self.member.user.first_name
+
+class AllSessions(models.Model):
+    name = models.CharField(max_length=1000000)
+    def __str__(self):
+        return self.name

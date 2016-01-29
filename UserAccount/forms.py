@@ -5,12 +5,23 @@ from django import forms
 from django.contrib.auth.models import User
 from UserAccount.models import Member
 
+
+my_default_errors = {
+    'required': 'لطفا این فیلد را پر نمایید',
+    'invalid': 'لطفا یک مقدار مناسب وارد نمایید',
+}
+user_exist_errors = {
+    'required': 'لطفا این فیلد را پر نمایید',
+    'invalid': 'لطفا یک مقدار مناسب وارد نمایید',
+    'unique':'کاربری با این نام وجود دارد'
+}
+
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(),label='رمز عبور')
-    first_name = forms.CharField(label='نام', max_length=100)
-    last_name = forms.CharField(label='نام خانوادگی', max_length=100)
-    username = forms.CharField(label='نام کاربری', max_length=100)
-    email = forms.CharField(label='پست الکترونیکی', max_length=100)
+    password = forms.CharField(error_messages=my_default_errors,widget=forms.PasswordInput(),label='رمز عبور')
+    first_name = forms.CharField(error_messages=my_default_errors,label='نام', max_length=100)
+    last_name = forms.CharField(error_messages=my_default_errors,label='نام خانوادگی', max_length=100)
+    username = forms.CharField(error_messages=user_exist_errors,label='نام کاربری', max_length=100)
+    email = forms.EmailField(error_messages=my_default_errors,label='پست الکترونیکی')
 
     class Meta:
         model = User
@@ -18,11 +29,11 @@ class UserForm(forms.ModelForm):
 
 class MemberForm(forms.ModelForm):
 
-    picture = forms.ImageField(label='عکس',required=False)
+    picture = forms.ImageField(error_messages=my_default_errors,label='عکس',required=False)
     tel = forms.CharField(label='تلفن',required=False)
     CHOICES=[('کارگر','کارگر'),('کارفرما','کارفرما')]
 
-    m_type = forms.ChoiceField(label='ثبت نام به عنوان', choices=CHOICES, widget=forms.RadioSelect())
+    m_type = forms.ChoiceField(error_messages=my_default_errors,label='ثبت نام به عنوان', choices=CHOICES, widget=forms.RadioSelect())
 
 
     class Meta:
@@ -32,15 +43,19 @@ class MemberForm(forms.ModelForm):
 
 class AddUserForm(forms.ModelForm):
 
-    bankBalance = forms.IntegerField(label='موجودی حساب')
-    picture = forms.ImageField(label='عکس',required=False)
-    tel = forms.CharField(label='تلفن',max_length=20)
-    city = forms.CharField(label='استان',max_length=20)
-    town = forms.CharField(label='شهر',max_length=20)
-    zone = forms.CharField(label='منطقه',max_length=20)
-    region = forms.CharField(label='ناحیه',max_length=20)
-    member_type = forms.IntegerField(label='نوع عضویت')
+    bankBalance = forms.IntegerField(error_messages=my_default_errors,label='موجودی حساب',required=False)
+    picture = forms.ImageField(error_messages=my_default_errors,label='عکس',required=False)
+    tel = forms.CharField(error_messages=my_default_errors,label='تلفن',max_length=20,required=False)
+    city = forms.CharField(error_messages=my_default_errors,label='استان',max_length=20,required=False)
+    town = forms.CharField(error_messages=my_default_errors,label='شهر',max_length=20,required=False)
+    zone = forms.CharField(error_messages=my_default_errors,label='منطقه',max_length=20,required=False)
+    region = forms.CharField(error_messages=my_default_errors,label='ناحیه',max_length=20,required=False)
+    member_type = forms.IntegerField(error_messages=my_default_errors,label='نوع عضویت')
 
     class Meta:
         model = Member
         fields = ('bankBalance' ,'picture' , 'tel' , 'city' , 'town' , 'zone' , 'region', 'member_type' )
+
+
+
+

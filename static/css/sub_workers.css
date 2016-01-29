@@ -1,0 +1,38 @@
+#doc{
+    position: relative;
+    overflow: auto;
+}
+.content_box{
+    float: right;
+    width: 50%;
+    height: 200px;
+    clear: both;
+    border: 1px solid black;
+    margin:50px 25% 0px 25%;
+    border-radius: 2em;
+    text-align: center;
+}
+
+#hcontent{
+    float: right;
+    width: 70%;
+    height: inherit;
+    border: 1px groove #1678c2;
+    border-radius: 2em;;
+}
+
+#hcontent h3{
+    display: inline-block;
+    width: 45%;
+    margin: 5px  0 0 0;
+}
+
+.content_box img{
+    float: left;
+    left:-100%;
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    border: 2px groove #1678c2;
+    border-radius: 50%;
+}

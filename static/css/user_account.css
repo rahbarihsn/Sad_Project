@@ -21,7 +21,12 @@
     border-radius: 1em;
 }
 
-
+#header h3{
+    float: right;
+}
+#header h4{
+    float: left;
+}
 
 
 
@@ -34,6 +39,7 @@
     height: 100px;
     
 }
+
 
 
 #menu

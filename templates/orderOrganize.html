@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% load static %}
+{% block headContent %}
+    <link href="{% static "css/orderWork.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block bodyContent %}
+    <div class="ui two column grid">
+
+        <div class="column" style="width:800px;margin:auto;"> 
+            <div class="ui raised segment">
+                <a class="ui purple right ribbon label" style="font-size:15px;">مرتب کردن</a>
+                <p  dir="rtl" class="myP">
+                
+لطفا  کار مورد نظر را انتخاب نمایید :
+                </p>
+                
+                <div class="ui three column grid" style="margin:auto">
+
+
+                         <div class="column"  style="font-size:15px;">
+
+                            <a href="listOfOrder.html" class="fluid ui violet button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                                گرد گیری
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui violet button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               جارو کردن
+                            </a>
+
+                         </div>
+
+
+                         <div class="column">
+
+                            <a href="listOfOrder.html" class="fluid ui orange button"  style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               شیشه شوری 
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui orange button"  style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               ظرف شویی
+                            </a>
+
+                         </div>
+
+
+                        <div class="column"  style="font-size:15px;">
+
+                            <a href="listOfOrder.html" class="fluid ui olive button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                                لباس شوری
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui olive button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               تی کشی
+                            </a>
+
+                         </div>
+
+                    </div>
+
+                    <br>
+                    <br>
+
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

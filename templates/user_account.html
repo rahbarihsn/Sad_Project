@@ -12,6 +12,7 @@
             <div id="header">
                <img class="logo" src="/media/{{ member.picture }}" />
                 <h3>{{ member.user.first_name }} {{ member.user.last_name }}</h3>
+                <h4><a href="/logout">خروج</a> </h4>
             </div>
 
             <div id="menu">
@@ -21,7 +22,7 @@
                         <li class="menuitem"><a href="#">جستجو</a></li>
                     {% if member.member_type == 1 or member.member_type == 2 %}
                         <li id="delete_user" class="menuitem"><a href="#">حذف کاربران</a></li>
-                        <li id="add_user" class="menuitem"><a href="#">اضافه کردن کاربران</a></li>
+                        <li id="add_user" onclick="addUser()" class="menuitem"><a href="#">اضافه کردن کاربران</a></li>
                     {% endif %}
                     {% if member.member_type == 4 %}
                         <li class="menuitem"><a href="#">تعریف مهارت</a></li>
@@ -57,7 +58,7 @@
                         {% if member.member_type == 3 %}
                             <li><a href="#">تاریخجه سفارشات</a></li>
                             <li><a href="#">لیست سفارشات</a></li>
-                            <li><a id="order_work" href="order_work.html">ثبت سفارش</a></li>
+                            <li onclick="showOrderWork()"><a href="#">ثبت سفارش</a></li>
                             <li><a href="#">تراکنش های انجام شده</a></li>
                             <li><a href="#">تراکنش های انجام نشده</a></li>
                         {% endif %}
@@ -78,15 +79,27 @@
        </div>
 
     <script type="text/javascript">
-        var button = document.querySelector("#add_user")
-        button.addEventListener('click', function (event) {
-            event.preventDefault();
+        function addUser(){
             var xhr = new XMLHttpRequest();
-            xhr.open('get','/user_account/{{ member.user.username }}/add_user',true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById("content").innerHTML = xhr.response;
+                }
+            };
+            xhr.open("GET","/add_user",true)
+            xhr.send()
+        }
 
-
-        });
-
+        function showOrderWork(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById("content").innerHTML = xhr.response;
+                }
+            };
+            xhr.open("GET","/show_order_work",true)
+            xhr.send()
+        }
     </script>
 
 {% endblock %}

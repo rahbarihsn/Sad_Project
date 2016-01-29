@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block headContent %}
+    <link href="{% static "css/orderWork.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block bodyContent %}
+    <div class="ui two column grid">
+
+        <div class="column" style="width:800px;margin:auto;"> 
+            <div class="ui raised segment">
+                <a class="ui purple right ribbon label" style="font-size:15px;">تعمیرات</a>
+                <p  dir="rtl" class="myP">
+                
+لطفا  کار مورد نظر را انتخاب نمایید :
+                </p>
+                
+                <div class="ui three column grid" style="margin:auto">
+
+
+                         <div class="column"  style="font-size:15px;">
+
+                            <a href="listOfOrder.html" class="fluid ui violet button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                                خودرو
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui violet button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               لوله کشی
+                            </a>
+
+                         </div>
+
+
+                         <div class="column">
+
+                            <a href="listOfOrder.html" class="fluid ui orange button"  style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               اسباب خانه
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui orange button"  style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               اسباب آشپزخانه
+                            </a>
+
+                         </div>
+
+
+                        <div class="column"  style="font-size:15px;">
+
+                            <a href="listOfOrder.html" class="fluid ui olive button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                                برق کاری
+                            </a>
+
+                            <br>
+
+                            <a href="listOfOrder.html" class="fluid ui olive button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                               لوازم الکتریکی
+                            </a>
+
+                         </div>
+
+                    </div>
+
+                    <br>
+                    <br>
+
+                        <a href="listOfOrder.html" class="ui right labeled icon button" style="font-family: 'B Koodak',  Tahoma, Arial; !important">
+                            بازگشت به مرحله ی قبل
+                        <i class="right chevron icon"></i>
+                        </a>
+            </div>
+        </div>
+
+        <div class="column" style="width:250px">
+
+            <!-- SideBar -->
+            <div class="ui vertical menu mySideBar" dir="rtl">
+                <a href="works.html" class="active item" >
+                    سفارش کار جدید 
+                </a>
+                <a href="listOfOrder.html" class="item">
+                    لیست سفارشات انجام نشده
+                </a>
+                <a href="historyOrder.html" class="item">
+                    تاریخچه ی سفارشات
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

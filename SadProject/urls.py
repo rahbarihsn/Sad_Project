@@ -17,7 +17,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from UserAccount import views
-import settings
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,8 +27,12 @@ urlpatterns = [
     url(r'^logout/$',views.user_logout),
     url(r'register/activate_user/(?P<id>[0-9]+)/$',views.activate_user),
     url(r'^edit_profile/$',views.edit_profile),
-    url(r'order_work/$',views.show_order_work),
+    url(r'show_order_work/$',views.show_order_work),
     url(r'^user_account/(?P<username>\w+)/$',views.user_account),
     url(r'add_user/$',views.add_user),
+    url(r'sub_works/(?P<name>\w+)/$',views.show_sub_works),
+    url(r'^works/$',views.show_works),
+    url(r'^workers/(?P<name>\w+)/$',views.show_sub_workers),
+    url(r'^logout/$',views.user_logout)
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
